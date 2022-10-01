@@ -15,6 +15,8 @@ from datetime import datetime
 import smtplib 
 
 PLACEHOLDER = '[NAME]'
+EMAIL = 'example@gmail.com'
+PASSWORD = 'test password'
 
 today = datetime.now()
 today_tuple = (today.month, today.day)
@@ -27,7 +29,14 @@ if today_tuple in birthday_dict:
     with open(file_path) as letter_file:
         content = letter_file.read()
         content.replace(PLACEHOLDER, birthday_name['name'])
-        
+    with smtplib.SMTP("YOUR EMAIL PROVIDER SMTP SERVER ADDRESS") as connection:
+        connection.starttls()
+        connection.login(EMAIL, PASSWORD)
+        connection.sendmail(
+            from_addr=EMAIL,
+            to_addrs=birthday_name["email"],
+            msg=f"Subject:Happy Birthday!\n\n{content}"
+        )
 
 
 
