@@ -39,10 +39,11 @@ def is_night():
         return True
 
 
-# with smtplib.SMTP('YOUR EMAIL PROVIDER SMTP SERVER ADDRESS') as connection:
-#     connection.starttls()
-#     connection.login(MY_EMAIL, PASSWORD)
-#     connection.sendmail(from_addr=MY_EMAIL, to_addrs='test@gmail.com', msg='LOOK UP')
+if iss_close() and is_night():
+    with smtplib.SMTP('YOUR EMAIL PROVIDER SMTP SERVER ADDRESS') as connection:
+        connection.starttls()
+        connection.login(MY_EMAIL, PASSWORD)
+        connection.sendmail(from_addr=MY_EMAIL, to_addrs='test@gmail.com', msg='LOOK UP')
 
 
 
