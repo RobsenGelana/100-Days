@@ -10,10 +10,13 @@
 
 import pandas as pd 
 import random
-import datetime as dt 
+from datetime import datetime 
 import smtplib 
 
+today = datetime.now()
+today_tuple = (today.month, today.day)
 
 data = pd.read_csv('./bd.csv')
-print(data)
+
+
 
