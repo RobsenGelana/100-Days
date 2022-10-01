@@ -1,7 +1,7 @@
 import requests
 from datetime import datetime
 import smtplib
-
+import time
 
 LONG = 40.489674
 LAT = 9.145000
@@ -38,12 +38,13 @@ def is_night():
     if current_time >= sunset or current_time <= sunrise:
         return True
 
-
-if iss_close() and is_night():
-    with smtplib.SMTP('YOUR EMAIL PROVIDER SMTP SERVER ADDRESS') as connection:
-        connection.starttls()
-        connection.login(MY_EMAIL, PASSWORD)
-        connection.sendmail(from_addr=MY_EMAIL, to_addrs='test@gmail.com', msg='LOOK UP')
+while True:
+    time.sleep(60)
+    if iss_close() and is_night():
+        with smtplib.SMTP('YOUR EMAIL PROVIDER SMTP SERVER ADDRESS') as connection:
+            connection.starttls()
+            connection.login(MY_EMAIL, PASSWORD)
+            connection.sendmail(from_addr=MY_EMAIL, to_addrs='test@gmail.com', msg='LOOK UP')
 
 
 
