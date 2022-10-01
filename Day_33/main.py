@@ -5,16 +5,14 @@ from datetime import datetime
 LONG = 40.489674
 LAT = 9.145000
 
-# response = requests.get(url='http://api.open-notify.org/iss-now.json')
-# response.raise_for_status()
+response = requests.get(url='http://api.open-notify.org/iss-now.json')
+response.raise_for_status()
 
-# data = response.json()
+data = response.json()
 
-# longitude = data['iss_position']['longitude']
-# latitude = data['iss_position']['latitude']
+iss_longitude = float(data['iss_position']['longitude'])
+iss_latitude = float(data['iss_position']['latitude'])
 
-# iss_position = (longitude, latitude)
-# print(iss_position)
 
 parameters = {
     'lat': LAT,
