@@ -15,7 +15,7 @@ class QuizInterface:
         self.false_image = PhotoImage(file='~/Desktop/100Days/Day_34/images/false.png')
         self.false = Button()
         self.false.config(image=self.false_image)
-        self.false.grid(row=)
+        self.false.grid(row=3, column=1)
 
 
         
