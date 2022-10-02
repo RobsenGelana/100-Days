@@ -11,7 +11,7 @@ class QuizInterface:
 
         self.canvas = Canvas(height=250, width=300)
         self.canvas.config(bg='white')
-        self.text = self.canvas.create_text(text="Title", font=FONT)
+        self.text = self.canvas.create_text(125, 150, text="Title", font=FONT)
         self.canvas.grid(column=0, row=1, columnspan=2)
 
         self.true_image = PhotoImage(file='~/Desktop/100Days/Day_34/images/true.png')
