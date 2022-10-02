@@ -1,14 +1,13 @@
 from tkinter import *
-
 THEME_COLOR = "#375362"
 FONT = ('Ariel', 20, 'normal')
+
 
 class QuizInterface:
     def __init__(self) -> None:
         self.window = Tk()
         self.window.title('Quizzler')
         self.window.config(padx=20, pady=20, bg=THEME_COLOR)
-
         self.canvas = Canvas(height=250, width=300)
         self.canvas.config(bg='white')
         self.text = self.canvas.create_text(125, 150, text="Title", font=FONT)
