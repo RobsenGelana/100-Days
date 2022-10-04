@@ -1,1 +1,1 @@
-# Sending a motivation Qutoes from Kayne west collection
+# Sending a motivation Qutoes every moday via email
