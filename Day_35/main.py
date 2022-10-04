@@ -8,9 +8,11 @@ LON = 40.489674
 weather = {
     "lat": LAT,
     "lon": LON,
-    "appid": api_key
+    "appid": api_key,
+    "exclude": "current,minutely,daily"
 }
 
 response = requests.get(OPEN_WEATHER, params=weather)
 response.raise_for_status()
-print(response.json())
+weather_data = response.json()
+
