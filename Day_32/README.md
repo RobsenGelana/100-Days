@@ -1,1 +1,1 @@
-# A birthday wisher that send automated email for the birth day Person
+# Sending a motivation Qutoes from Kayne west collection
