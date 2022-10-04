@@ -1,7 +1,7 @@
 import requests
 
 OPEN_WEATHER = "https://api.openweathermap.org/data/3.0/onecall"
-api_key = "310fe326d50b57e36ecf5172fa769264"
+api_key = "YOUR API"
 LAT = 51.507351
 LON = -0.127758
 
