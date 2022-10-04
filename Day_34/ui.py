@@ -16,7 +16,11 @@ class QuizInterface:
         self.score_label.grid(row=0, column=1)
 
         self.canvas = Canvas(width=300, height=250,  bg='white')
-        self.question_text = self.canvas.create_text(150, 125,text="Question Text", fill=THEME_COLOR, font=('Arial', 20, 'normal'))
+        self.question_text = self.canvas.create_text(150, 125,
+                                                    width=280,
+                                                    text="Question Text", 
+                                                    fill=THEME_COLOR, 
+                                                    font=('Arial', 20, 'normal'))
         self.canvas.grid(column=0, row=1, columnspan=2, pady=50)
 
         true_image = PhotoImage(file='~/Desktop/100Days/Day_34/images/true.png')
