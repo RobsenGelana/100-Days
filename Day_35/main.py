@@ -1,9 +1,17 @@
 import requests
 
+import os
+from twilio.rest import Client
+
+#using open weather map api to get access for the weather conditions
 OPEN_WEATHER = "https://api.openweathermap.org/data/3.0/onecall"
 api_key = "YOUR API"
 LAT = 51.507351
 LON = -0.127758
+
+#GETTING THIS FROM TWILIO
+account_sid = os.environ['Your Account SID']
+auth_token = os.environ['YOUR AUTH TOKEN']
 
 weather = {
     "lat": LAT,
@@ -26,5 +34,11 @@ for hour_data in weather_data:
         will_rain = True
 
 if will_rain:
-    print("Bring an umbrella.")
+    client = Client(account_sid, auth_token)
+    message = client.messages.create(
+                              body='It is going to rain to day so get your umbrella',
+                              from_='+13023054130',
+                              to='Your verified Phone number'
+                          )
 
+    print(message.status)
