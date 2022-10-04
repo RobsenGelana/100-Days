@@ -6,7 +6,7 @@ THEME_COLOR = "#375362"
 
 
 class QuizInterface:
-    def __init__(self, quiz_brain: QuizBrain):
+    def __init__(self, quiz_brain: QuizBrain) :
         self.quiz = quiz_brain
         self.window = Tk()
         self.window.title('Quizzler')
@@ -25,11 +25,11 @@ class QuizInterface:
 
         true_image = PhotoImage(file='~/Desktop/100Days/Day_34/images/true.png')
         self.true = Button()
-        self.true.config(image=true_image)
+        self.true.config(image=true_image, command=self.check_true)
         self.true.grid(row=3, column=0)
         false_image = PhotoImage(file='~/Desktop/100Days/Day_34/images/false.png')
         self.false = Button()
-        self.false.config(image=false_image)
+        self.false.config(image=false_image, command=self.check_false)
         self.false.grid(row=3, column=1)
 
         self.get_next_question()
@@ -39,3 +39,9 @@ class QuizInterface:
     def get_next_question(self):
         q_text = self.quiz.next_question()
         self.canvas.itemconfig(self.question_text, text=q_text)
+    
+    def check_true(self):
+        self.quiz.check_answer('True')
+
+    def check_false(self):
+        self.quiz.check_answer('False')
