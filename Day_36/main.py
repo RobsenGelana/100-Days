@@ -15,8 +15,8 @@ NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 # When stock price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
 response = requests.get(url=STOCK_ENDPOINT, params=parameters)
 response.raise_for_status()
-data = response.json()
-print(data)
+data = response.json()['Time Series (Daily)']
+# print(data['Meta Data']['3. Last Refreshed'])
 #TODO 1. - Get yesterday's closing stock price. Hint: You can perform list comprehensions on Python dictionaries. e.g. [new_value for (key, value) in dictionary.items()]
 
 #TODO 2. - Get the day before yesterday's closing stock price
