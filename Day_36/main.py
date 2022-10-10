@@ -16,18 +16,16 @@ NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 response = requests.get(url=STOCK_ENDPOINT, params=parameters)
 response.raise_for_status()
 data = response.json()['Time Series (Daily)']
-# print(data['Meta Data']['3. Last Refreshed'])
 #TODO 1. - Get yesterday's closing stock price. Hint: You can perform list comprehensions on Python dictionaries. e.g. [new_value for (key, value) in dictionary.items()]
 data_list = [value for key, value in data.items()]
 yesterday_data = data_list[0]
 yesterday_data_closing_price = yesterday_data['4. close']
-# print(yesterday_data_closing_price)
 #TODO 2. - Get the day before yesterday's closing stock price
 day_before_yesterday_data = data_list[1]
 day_before_yesterday_data_closing_price = day_before_yesterday_data['4. close']
-print(day_before_yesterday_data_closing_price)
 #TODO 3. - Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
-
+difference = float(yesterday_data_closing_price) - float(day_before_yesterday_data_closing_price)
+print(difference)
 #TODO 4. - Work out the percentage difference in price between closing price yesterday and closing price the day before yesterday.
 
 #TODO 5. - If TODO4 percentage is greater than 5 then print("Get News").
