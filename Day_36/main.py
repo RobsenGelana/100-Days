@@ -32,7 +32,13 @@ diff_percentage = (difference / float(yesterday_data_closing_price)) * 100
 
 #TODO 6. - Instead of printing ("Get News"), use the News API to get articles related to the COMPANY_NAME.
 if diff_percentage > 0:
-    print("Great News")
+    news_parameter = {
+        'apiKey':NEWS_API,
+        'qInTitle':COMPANY_NAME,
+    }
+
+
+    requests.get(NEWS_ENDPOINT, params=news_parameter)
 
 #TODO 7. - Use Python slice operator to create a list that contains the first 3 articles. Hint: https://stackoverflow.com/questions/509211/understanding-slice-notation
 
