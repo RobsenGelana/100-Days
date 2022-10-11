@@ -1,5 +1,9 @@
+import os
+from twilio.rest import Client
 import requests
 
+ACCOUNT_SID = "AC3fa133bb4aa764b11cba58db5d036a54"
+AUTH_TOKEN = "158c09ba3081e2e4b094a6e220109e1a"
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 NEWS_API = "6443794787c24c238652f58bf84c693b"
@@ -51,6 +55,23 @@ if diff_percentage > 0:
     #Create a new list of the first 3 article's headline and description using list comprehension.
     formatted_article = [f"Headline: {article['title']}. \nBrief: {article['description']}" for article in three_articles]
     #TODO 9. - Send each article as a separate message via Twilio. 
+    # Download the helper library from https://www.twilio.com/docs/python/install
+
+
+    # Find your Account SID and Auth Token at twilio.com/console
+    # and set the environment variables. See http://twil.io/secure
+    account_sid = os.environ[ACCOUNT_SID]
+    auth_token = os.environ[AUTH_TOKEN]
+    client = Client(account_sid, auth_token)
+
+    message = client.messages \
+                    .create(
+                        body="Join Earth's mightiest heroes. Like Kevin Bacon.",
+                        from_='+15017122661',
+                        to='+15558675310'
+                    )
+
+    print(message.sid)
 
 
 
