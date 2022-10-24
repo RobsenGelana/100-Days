@@ -63,15 +63,15 @@ if diff_percentage > 0:
     account_sid = os.environ[ACCOUNT_SID]
     auth_token = os.environ[AUTH_TOKEN]
     client = Client(account_sid, auth_token)
+    for article in formatted_article:
+        message = client.messages \
+                        .create(
+                            body=article,
+                            from_='YOUR TWILIO PHONE NUMBER',
+                            to='THE PHONE YOU VERIFIED IT WITH'
+                        )
 
-    message = client.messages \
-                    .create(
-                        body="Join Earth's mightiest heroes. Like Kevin Bacon.",
-                        from_='+15017122661',
-                        to='+15558675310'
-                    )
-
-    print(message.sid)
+        print(message.sid)
 
 
 
