@@ -29,15 +29,21 @@ yesterday_data_closing_price = yesterday_data['4. close']
 day_before_yesterday_data = data_list[1]
 day_before_yesterday_data_closing_price = day_before_yesterday_data['4. close']
 #Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
-difference = abs(float(yesterday_data_closing_price) - float(day_before_yesterday_data_closing_price))
+difference = (float(yesterday_data_closing_price) - float(day_before_yesterday_data_closing_price))
+up_down = None
+if difference > 0:
+    up_down = "^"
+#Two of ^^ means a down symbol for this project :)
+else:
+    up_down = "^^"
 #Work out the percentage difference in price between closing price yesterday and closing price the day before yesterday.
-diff_percentage = (difference / float(yesterday_data_closing_price)) * 100
+diff_percentage = round(difference / float(yesterday_data_closing_price)) * 100
 
     ## STEP 2: https://newsapi.org/ 
     # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
 
 #Instead of printing ("Get News"), use the News API to get articles related to the COMPANY_NAME.
-if diff_percentage > 0:
+if abs(diff_percentage) > 0:
     news_parameter = {
         'apiKey':NEWS_API,
         'qInTitle':COMPANY_NAME,
@@ -53,7 +59,7 @@ if diff_percentage > 0:
     #to send a separate message with each article's title and description to your phone number. 
 
     #Create a new list of the first 3 article's headline and description using list comprehension.
-    formatted_article = [f"Headline: {article['title']}. \nBrief: {article['description']}" for article in three_articles]
+    formatted_article = [f"{STOCK_NAME}: {up_down}{diff_percentage}%\n Headline: {article['title']}. \nBrief: {article['description']}" for article in three_articles]
     #TODO 9. - Send each article as a separate message via Twilio. 
     # Download the helper library from https://www.twilio.com/docs/python/install
 
