@@ -24,6 +24,9 @@ graph_conf = {
     "type": "float",
     "color": "momiji",
 }
+http_header = {
+    "X-USER-TOKEN": TOKEN
+}
 
 response = requests.post(url=graph_endpoint, json=graph_conf)
 print(response.text)
