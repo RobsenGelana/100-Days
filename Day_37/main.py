@@ -1,4 +1,6 @@
 import requests
+from datetime import datetime
+
 
 TOKEN = "asdfhafw1312jasdfa"
 USERNAME = "robsen"
@@ -31,13 +33,13 @@ http_header = {
 
 # response = requests.post(url=graph_endpoint, json=graph_conf, headers=http_header)
 # print(response.text)
-
+today = datetime.now()
 graph_value = f"{graph_endpoint}/{ID}"
 
 graph_value_config = {
-    'date': "20220924",
+    'date': today.strftime("%Y%m%d"),
     'quantity': "11.7",
 }
 
-response = requests.post(url=graph_value, json=graph_value_config, headers=http_header)
-print(response.text)
+# response = requests.post(url=graph_value, json=graph_value_config, headers=http_header)
+# print(response.text)
