@@ -19,3 +19,6 @@ json_params = {
     "height_cm": 173,
     "age": 19
 }
+
+response = requests.post(url=page_endpoint, json=json_params, headers=http_header)
+print(response.text)
