@@ -57,5 +57,5 @@ update_json = {
 
 delete_endpoint = f"{graph_value}/20220724"
 
-response = requests.delete(url=delete_endpoint, headers=http_header)
-print(response.text)
+# response = requests.delete(url=delete_endpoint, headers=http_header)
+# print(response.text)
