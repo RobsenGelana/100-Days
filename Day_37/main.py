@@ -18,7 +18,12 @@ user_params = {
 graph_endpoint = f"{endpoint}/{USERNAME}/graphs"
 
 graph_conf = {
-    
+    "id": "graph1",
+    "name": "Coding Graph",
+    "unit": "hours",
+    "type": "float",
+    "color": "momiji",
 }
 
-requests.post()
+response = requests.post(url=graph_endpoint, json=graph_conf)
+print(response.text)
