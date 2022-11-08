@@ -28,5 +28,5 @@ http_header = {
     "X-USER-TOKEN": TOKEN
 }
 
-response = requests.post(url=graph_endpoint, json=graph_conf)
+response = requests.post(url=graph_endpoint, json=graph_conf, headers=http_header)
 print(response.text)
