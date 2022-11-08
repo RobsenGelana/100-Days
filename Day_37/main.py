@@ -35,7 +35,9 @@ http_header = {
 graph_value = f"{graph_endpoint}/{ID}"
 
 graph_value_config = {
-    'date': 20220811,
-    'quantity': 3,
+    'date': "20220924",
+    'quantity': "11.7",
 }
 
+response = requests.post(url=graph_value, json=graph_value_config, headers=http_header)
+print(response.text)
