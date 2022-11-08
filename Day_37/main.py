@@ -43,3 +43,12 @@ graph_value_config = {
 
 # response = requests.post(url=graph_value, json=graph_value_config, headers=http_header)
 # print(response.text)
+
+#Updating the pixel
+
+update_endpoint = f"{graph_value}/20220924"
+update_json = {
+    "quantity": "9.89"
+}
+# response = requests.put(url=update_endpoint, json=update_json, headers=http_header)
+# print(response.text)
