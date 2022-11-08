@@ -52,3 +52,10 @@ update_json = {
 }
 # response = requests.put(url=update_endpoint, json=update_json, headers=http_header)
 # print(response.text)
+
+#Deleting pixel
+
+delete_endpoint = f"{graph_value}/20220724"
+
+response = requests.delete(url=delete_endpoint, headers=http_header)
+print(response.text)
