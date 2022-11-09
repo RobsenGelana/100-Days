@@ -45,8 +45,8 @@ for exercise in result['exercises']:
     sheet_response = requests.post(sheety_endpoint, 
                                 json=sheety_input,   
                                 auth=(
-                                        "robsen", 
-                                        "liverpoolalwaysy",
+                                        "YOUR NAME", 
+                                        " YOUR PASSWORD",
                                     )
                                     )
 
