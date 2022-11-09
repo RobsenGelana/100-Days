@@ -42,6 +42,12 @@ for exercise in result['exercises']:
             "calories": exercise["nf_calories"]
         }
     }
-    sheet_response = requests.post(sheety_endpoint, json=sheety_input)
+    sheet_response = requests.post(sheety_endpoint, 
+                                json=sheety_input,   
+                                auth=(
+                                        "robsen", 
+                                        "liverpoolalwaysy",
+                                    )
+                                    )
 
     print(sheet_response.text)
