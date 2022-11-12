@@ -13,4 +13,6 @@ print(all_anchor_tags)
 
 for tags in all_anchor_tags:
     #getting all the text
-    print(tags.getText())
+    # print(tags.getText())
+    #getting the link
+    print(tags.get("href"))
