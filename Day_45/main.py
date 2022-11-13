@@ -4,12 +4,12 @@ import requests
 #Using BeautifulSoup with live website
 
 response = requests.get("https://news.ycombinator.com/newest")
-print(response.text)
+yc_web_page = response.text
 
+soup = BeautifulSoup(yc_web_page, "html.parser")
+first_article = soup.find(name="a", class_="storylink")
 
-
-
-
+print(first_article.getText())
 
 
 
