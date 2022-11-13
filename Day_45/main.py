@@ -2,8 +2,6 @@ from bs4 import BeautifulSoup
 import requests
 
 #Using BeautifulSoup with live website
-from bs4 import BeautifulSoup
-import requests
 
 response = requests.get("https://news.ycombinator.com/news")
 yc_web_page = response.text
