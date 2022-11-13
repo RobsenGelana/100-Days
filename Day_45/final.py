@@ -8,4 +8,5 @@ soup = BeautifulSoup(movies_html, 'html.parser')
 all_movies = soup.find_all(name="h3", class_="jsx-4245974604")
 
 movie_title = [movie.getText() for movie in all_movies]
-print(movie_title)
+reversed_list = movie_title[::-1]
+
