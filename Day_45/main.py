@@ -24,6 +24,9 @@ largest_vote = max(article_votes)
 #getting the index of the largest vote
 largest_index = article_votes.index(largest_vote)
 
+print(article_text[largest_index])
+print(article_link[largest_index])
+print(largest_vote)
 
 
 
