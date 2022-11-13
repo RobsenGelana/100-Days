@@ -10,6 +10,6 @@ all_movies = soup.find_all(name="h3", class_="jsx-4245974604")
 movie_title = [movie.getText() for movie in all_movies]
 reversed_list = movie_title[::-1]
 
-with open("movie_list", "w") as movies:
+with open("movie_list.txt", "w") as movies:
     for movie in reversed_list:
         movies.write(f"{movie}\n")
