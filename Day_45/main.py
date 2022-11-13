@@ -17,7 +17,8 @@ for article in articles:
     article_link.append(link)
     text = articles.getText()
     article_text.append(text)
-article_votes = [vote.getText() for vote in soup.find_all(name='span', class_="score")]
+article_votes = [vote.getText().split()[0] for vote in soup.find_all(name='span', class_="score")]
+
 
 
 
