@@ -1,14 +1,14 @@
-import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
+import requests
+import lxml
 
+# Enter the date
+date = input("Enter the date YYYY-MM-DD: ")
 
-user_input = input("what year you would like to travel to in YYY-MM-DD: ")
-URL = 'https://www.billboard.com/charts/hot-100/' + user_input
-response = requests.get(url=URL)
-music_html = response.text
-
-soup = BeautifulSoup(music_html, 'html.parser')
-music_list = soup.find_all(name="h3", class_="c-title")
-songs = [music.getText().strip() for music in music_list]
-print(songs)
+# Requesting the page
+response = requests.get(f"https://www.billboard.com/charts/hot-100/{date}/")
+page_html = response.text
+soup = BeautifulSoup(page_html, 'lxml')
+songs_list = soup.select("li #title-of-a-story")
+musics = [songs.text.strip() for songs in songs_list]
+print(musics)
