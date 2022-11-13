@@ -19,9 +19,10 @@ for article in articles:
     article_text.append(text)
 article_votes = [int(vote.getText().split()[0]) for vote in soup.find_all(name='span', class_="score")]
 
-
-
-
+#finding the biggest upvotes
+largest_vote = max(article_votes)
+#getting the index of the largest vote
+largest_index = article_votes.index(largest_vote)
 
 
 
