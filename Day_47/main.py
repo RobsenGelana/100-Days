@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import lxml
 
 headers = {
     "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
@@ -10,3 +11,6 @@ URL = "https://www.amazon.com/Dell-Laptop17-0-inch-Touchscreen-Display-i9-12900H
 response = requests.get(url=URL, headers=headers)
 html_page = response.text
 
+soup = BeautifulSoup(html_page, "lxml")
+lp_price = soup.find(name="span", class_="a-price-whole")
+print(lp_price)
