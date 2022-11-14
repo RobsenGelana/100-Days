@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import lxml
 import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
+from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
 
 # Enter the date
 date = input("Enter the date YYYY-MM-DD: ")
@@ -16,7 +16,17 @@ musics = [songs.text.strip() for songs in songs_list]
 print(musics)
 
 
-
+sp = spotipy.Spotify(
+    auth_manager=SpotifyOAuth(
+        scope="playlist-modify-private",
+        redirect_uri="http://localhost8888/callback/",
+        client_id="930e2a3db65142d19c1e17a2f0cce094",
+        client_secret="ed36f1e8fb43416f97ee58a01f9ba968",
+        show_dialog=True,
+        cache_path="token.txt"
+    )
+)
+user_id = sp.current_user()["id"]
 
 
 
