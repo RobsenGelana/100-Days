@@ -5,9 +5,11 @@ chrome_driver_path= "/home/robinson/Documents/Development/chromedriver"
 driver = webdriver.Chrome(executable_path=chrome_driver_path)
 
 driver.get("https://www.python.org/")
-events = driver.find_elements(By.XPATH, '//*[@id="content"]/div/section/div[3]/div[2]/div/ul')
+events_html = driver.find_elements(By.CSS_SELECTOR, "time")
+events_date = [event.text for event in events_html]
+print(events_date)
+event_dict = {}
 
-ou = [event.text for event in events]
-print(ou)
+
 
 driver.quit()
