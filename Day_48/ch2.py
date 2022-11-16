@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+import time
 
 
 chrome_driver_path= "/home/robinson/Documents/Development/chromedriver"
@@ -16,3 +17,7 @@ first_name.send_keys("Robsen")
 last_name.send_keys("gelana")
 email.send_keys("test@gmail.com")
 button.send_keys(Keys.ENTER)
+
+while True:
+    time.sleep(0.9)
+    # driver.quit()
