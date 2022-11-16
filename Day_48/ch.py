@@ -12,8 +12,8 @@ event_title = driver.find_elements(By.CSS_SELECTOR, ".event-widget li a")
 event_dict = {}
 for n in range(len(events_date)):
     event_dict[n] = {
-        'time': events_date[n],
-        'name': event_title[n]
+        'time': events_date[n].text,
+        'name': event_title[n].text
     }
 print(event_dict)
 
