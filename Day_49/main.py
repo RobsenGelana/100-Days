@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import time 
 
 ACCOUNT_EMAIL = "YOUR_LOGIN_EMAIL"
+PHONE = "ENTER YOUR PHONE NUMBER"
 ACCOUNT_PASSWORD = "YOUR_LOGIN_PASSWORD"
 
 chrome_driver_path= "/home/robinson/Documents/Development/chromedriver"
@@ -24,3 +25,9 @@ password_field.send_keys(Keys.ENTER)
 time.sleep(5)
 apply_button = driver.find_element_by_css_selector(".jobs-s-apply button")
 apply_button.click()
+
+#If application requires phone number and the field is empty, then fill in the number.
+time.sleep(5)
+phone = driver.find_element_by_class_name("fb-single-line-text__input")
+if phone.text == "":
+    phone.send_keys(PHONE)
