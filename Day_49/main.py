@@ -20,3 +20,7 @@ email_field.send_keys(ACCOUNT_EMAIL)
 password_field = driver(By.ID, "#password")
 password_field.send_keys(ACCOUNT_PASSWORD)
 password_field.send_keys(Keys.ENTER)
+
+time.sleep(5)
+apply_button = driver.find_element_by_css_selector(".jobs-s-apply button")
+apply_button.click()
