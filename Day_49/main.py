@@ -31,3 +31,6 @@ time.sleep(5)
 phone = driver.find_element_by_class_name("fb-single-line-text__input")
 if phone.text == "":
     phone.send_keys(PHONE)
+
+submit_button = driver.find_element_by_css_selector("footer button")
+submit_button.click()
