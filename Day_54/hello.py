@@ -6,7 +6,28 @@ app = Flask(__name__)
 def hello_world():
     return "<p>Hello, World!</p>"
 
+
+def make_bold(function):
+    def make():
+        return "<b>function</b>"
+    return make
+
+
+def make_emphasis(function):
+    def emp():
+        return "<em>function</em>"
+    return emp
+
+def make_underline(function):
+    def under():
+        return "<u>function</u>"
+    return under
+
+
 @app.route("/login")
+@make_bold
+@make_emphasis
+@make_underline
 def login():
     return "Login Page"
 
