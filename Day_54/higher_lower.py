@@ -13,11 +13,14 @@ def hello_world():
 @app.route("/<int:number>")
 def check(number):
     if number > my_guess:
-        return "<h3>Too high</h3>\
+        return "<h3 style='color:blue'>Too high</h3>\
             <img src='https://media.giphy.com/media/s5CJw8UPITK6I/giphy.gif'>"
     elif number < my_guess:
-        return "<h3>Too low</h3>\
-            <img src=''>"
+        return "<h3 style='color:red'>Too low</h3>\
+            <img src='https://media.giphy.com/media/2sfEg0Yv4c8E5VT7s3/giphy.gif'>"
+    else:
+        return "<h2 style='color:green'> You Guessed correct</h2>\
+            <img src='https://media.giphy.com/media/JKcneNkriqxQbE8e49/giphy.gif'>"
 
 
 
