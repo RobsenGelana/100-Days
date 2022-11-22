@@ -10,5 +10,9 @@ def hello_world():
 def login():
     return "Login Page"
 
+@app.route("/username/<name>")
+def greet(name):
+    return f"Hello {name}"
+
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
